@@ -1,0 +1,6 @@
+# Moved to backend/requirements.txt
+# Keep for backward compatibility
+fastapi
+uvicorn
+python-dotenv
+requests
