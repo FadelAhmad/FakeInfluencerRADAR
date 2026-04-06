@@ -17,8 +17,9 @@ interface FastEngagersCardProps {
   isLoading: boolean;
 }
 
-function getSuspicionBadge(level: string) {
-  switch (level.toLowerCase()) {
+function getSuspicionBadge(level?: string) {
+  const l = (level || "").toString().toLowerCase();
+  switch (l) {
     case "high":
       return "bg-risk-high/20 text-risk-high border-risk-high/30";
     case "medium":
@@ -109,7 +110,7 @@ export function FastEngagersCard({ data, isLoading }: FastEngagersCardProps) {
                   <span
                     className={`px-2 py-1 text-xs font-semibold rounded-full border ${getSuspicionBadge(engager.suspicion_level)}`}
                   >
-                    {engager.suspicion_level}
+                    {engager.suspicion_level || 'unknown'}
                   </span>
                 </div>
               ))}
