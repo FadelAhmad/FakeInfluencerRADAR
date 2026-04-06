@@ -137,17 +137,10 @@ export default function DashboardPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <Radar className="h-8 w-8 text-primary" />
-                <div className="absolute -top-1 -right-1 h-3 w-3 bg-risk-high rounded-full animate-pulse" />
-              </div>
               <div>
                 <h1 className="text-xl font-bold tracking-tight">
                   Fake Influencer Radar
                 </h1>
-                <p className="text-xs text-muted-foreground">
-                  AI-Powered Fraud Detection System
-                </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
