@@ -82,7 +82,8 @@ export async function getInfluencerScore(
 
 export async function getHighRisk(): Promise<HighRiskInfluencer[]> {
   const response = await fetch(`${API_BASE_URL}/influencers/high-risk`);
-  return handleResponse<HighRiskInfluencer[]>(response);
+  const data = await handleResponse<{ count?: number; results?: HighRiskInfluencer[] }>(response);
+  return data.results || [];
 }
 
 export async function getPodNetwork(userId: string): Promise<PodNetwork> {
@@ -94,16 +95,18 @@ export async function getFastEngagers(userId: string): Promise<FastEngager[]> {
   const response = await fetch(
     `${API_BASE_URL}/influencers/fast-engagers/${userId}`
   );
-  return handleResponse<FastEngager[]>(response);
+  const data = await handleResponse<{ count?: number; results?: FastEngager[] }>(response);
+  return data.results || [];
 }
 
 export async function getOverlap(
   userA: string,
   userB: string
-): Promise<OverlapResult> {
+): Promise<OverlapResult | null> {
   const params = new URLSearchParams({ userA, userB });
   const response = await fetch(
     `${API_BASE_URL}/influencers/overlap?${params.toString()}`
   );
-  return handleResponse<OverlapResult>(response);
+  const data = await handleResponse<{ results?: OverlapResult[] }>(response);
+  return data.results && data.results.length > 0 ? data.results[0] : null;
 }
