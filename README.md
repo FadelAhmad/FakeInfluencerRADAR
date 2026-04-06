@@ -15,7 +15,7 @@ The influencer marketing industry is built on a foundation of trust that is bein
 
 🧠 The Tech Stack
 
-Frontend: Next.js (Tailwind CSS + v0) — A high-performance, dark-themed security dashboard.
+Frontend: Next.js 14/15, Tailwind CSS, and v0 for Generative UI components.
 
 Backend: FastAPI (Python) — Asynchronous API for real-time fraud scoring.
 
